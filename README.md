@@ -8,68 +8,52 @@ Aura is a local-first AI desktop application from Multi AI Tech. A Leader agent 
 2. **API, Local or Harness** - you are never locked to one vendor. Use your own API key, a model running on your machine, or a coding agent you already installed.
 3. **Assembled from bricks** - modes, roles, pipelines, MCP connections, skills, modules and schedules are attached and detached by you, not fixed by the vendor.
 
-## Tier Structure & Delta Credit Release
+## Membership Tiers & Delta Credit (MAIC)
 
-### Membership Tiers
+| Tier | Price | Mandatory Lesson Learned | Delta Credit |
+|------|-------|-------------------------|--------------|
+| **Free** | Free forever | ✅ Yes | ❌ No |
+| **Pro** | $5/month or $50/year | ✅ Yes | ✅ Yes |
+| **Advance** | $10/month or $100/year | ❌ Optional | ✅ Only if contributing LL |
 
-| Tier | Harga | Wajib LL | Dapat Delta Credit |
-|------|-------|----------|-------------------|
-| **Free** | Gratis selamanya | ✅ Ya | ❌ Tidak |
-| **Pro** | $5/bln / $50/tahun | ✅ Ya | ✅ Ya |
-| **Advance** | $10/bln / $100/tahun | ❌ Opsional | ✅ Hanya jika kontribusi LL |
+### Delta Credit Accumulation & Release
 
-### Delta Credit Accumulation
-
-- **Kumpul selama membership**: Delta credit dikumpulkan per member selama berlangganan
-- **Rilis saat token launch**: Saat kuota rilis token (200 member Pro/Advance tahunan), credit dirilis bertahap
-- **Rate dinamis**: `daily_rate = accumulated_credits ÷ accumulation_days`
-- Contoh: 20k credit 10 hari → **2k/hari**; 10M credit 20 hari → **500k/hari**
-- Per-member, bukan fixed quota global
-
-### Free Tier Zeroing
-
-- Di `deltaAssessment.js`: `finalizeAssessment` → `reward_eligible_delta_credits = 0` untuk tier FREE
-- LL tetap diterima & dipublish — hanya tidak dapat Delta Credit
-- Invariant `verified = eligible + excluded` tetap terjaga
-
-### Turun ke Free Tier
-
-- LL **masa depan** tidak menghasilkan Delta Credit (di-asses berdasarkan tier saat ini)
-- Delta Credit **sudah terkumpul** tidak di-clawback — tetap dirilis sesuai rumus
-
-### Trigger Rilis Token
-
-- Ketika 200 member Pro/Advance tahunan terpenuhi
-- Credit terkumpul dibagi lama akumulasi → daily rate
-- Setiap member dapat 500k/hari (contoh 10M/20 hari)
+- **Accumulation**: Delta Credits are collected during membership period.
+- **Release trigger**: When 200 Pro/Advance annual members are reached, token release begins.
+- **Dynamic daily rate**: `accumulated_credits ÷ accumulation_days` per member.
+  - Example: 10M credits over 20 days = 500k/day per user during distribution.
+- **Tier change behavior**:
+  - Paid → Free: Delta Credit balance resets to 0, accumulation backlog zeroed.
+  - Free → Paid: Balance stays 0, only new Lesson Learned generates Delta Credit.
+  - Re-upgrade: Only post-return contributions earn Delta Credit.
 
 ## Quick start
 
-1. **Install** - download the Windows installer from [multiaitech.com](https://multiaitech.com/download) and run it.
-Use Control + Shift + m to toggle the tab key moving focus. Alternatively, use esc then tab to move to the next interactive element on the page.
-Attach files by dragging & dropping, selecting or pasting them.
-
-## Three differentiators
-
-1. **Team coordination** - a Leader orchestrates specialist roles (Coder, Reviewer, Security, Tester, Documentation) with configurable models per role.
-2. **API, Local or Harness** - you are never locked to one vendor. Use your own API key, a model running on your machine, or a coding agent you already installed.
-3. **Assembled from bricks** - modes, roles, pipelines, MCP connections, skills, modules and schedules are attached and detached by you, not fixed by the vendor.
+```bash
+git clone https://github.com/multiaitech/aura
+cd aura
+npm install
+npm start
+```
 
 ## Models
 
-the three executor paths in detail
+Aura ships with sensible defaults for every role. Bring your own keys or run local models via Ollama, llama.cpp, or your preferred harness.
 
 ## Features
 
-modes, roles, modules, MCP, skills, browser, checkpoints
+- Multi-agent orchestration with configurable pipelines
+- In-app browser for interactive workflows
+- Credential vault and checkpoint/rollback
+- Module system for recurring tasks
+- Telegram remote control built-in
 
 ## Reference
 
-sidebar labels, status lights, AuraData contents, troubleshooting
+- [MAIC Token & Economics](https://multiaitech.com/MAIC.md)
+- [Owner Checklist](https://multiaitech.com/Owner.txt)
+- [Upload Procedure](https://multiaitech.com/upload-web.txt)
 
 ## Proprietary
 
-Proprietary software from Multi AI Tech. All rights reserved. See LICENSE.
-
-multiaitech.com
-Download
+Aura core, installer, and the permission gate are closed source. User packages run in a sandboxed extension container.
